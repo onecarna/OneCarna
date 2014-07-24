@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account type:</strong>
+  <%= @account.account_type.capitalize %>
+</p>
+
+<p>
+<% if @account.is_medical? %>
+  <h2><strong>Account details:</strong></h2>
+  <h3> Company - <%= @account.company %> 
+<p>
+  <h3> Plan Type - <%= @account.plan_type %></h3>
+<p>
+  <h3> Premium - <%= @account.premium %></h3>
+<p>
+  <h3> In-network Deductible - <%= @account.in_deduct %></h3>
+<p>
+  <h3> Out-of-Network Deductible - <%= @account.on_deduct %></h3>
+</p>
+<% end %>
+
+<% unless @account.is_medical? %>
+  <h2><strong>Account details:</strong></h2>
+  <h3> Company - <%= @account.company %> 
+<p>
+  <h3> Plan Type - <%= @account.plan_type %></h3>
+<p>
+  <h3> Premium - <%= @account.premium %></h3>
+<p>
+  <h3> Balance - <%= @account.balance %></h3>
+</p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

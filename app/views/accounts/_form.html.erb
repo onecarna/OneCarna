@@ -1,0 +1,59 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :account_type %>
+  <% if @account.is_medical? %>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :plan_type %><br>
+    <%= f.text_field :plan_type %>
+  </div>
+  <div class="field">
+    <%= f.label :premium %><br>
+    <%= f.text_field :premium %>
+  </div>
+  <div class="field">
+    <%= f.label :in_deduct %><br>
+    <%= f.text_field :in_deduct %>
+  </div>
+  <div class="field">
+    <%= f.label :on_deduct %><br>
+    <%= f.text_field :on_deduct %>
+  </div>
+  <% end%>
+
+  <% unless @account.is_medical? %>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :plan_type %><br>
+    <%= f.text_field :plan_type %>
+  </div>
+  <div class="field">
+    <%= f.label :premium %><br>
+    <%= f.text_field :premium %>
+  </div> 
+  <div class="field">
+    <%= f.label :balance %><br>
+    <%= f.text_field :balance %>
+  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

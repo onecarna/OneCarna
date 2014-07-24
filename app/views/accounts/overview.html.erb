@@ -1,0 +1,27 @@
+<h3> Overview of Health Insurance Information </h3>
+
+<% if :accout_type 'medical' %>
+  <h2><strong>Account details:</strong></h2>
+  <h3> Company - <%= @account.company %> 
+<p>
+  <h3> Plan Type - <%= @account.plan_type %></h3>
+<p>
+  <h3> Premium - <%= @account.premium %></h3>
+<p>
+  <h3> In-network Deductible - <%= @account.in_deduct %></h3>
+<p>
+  <h3> Out-of-Network Deductible - <%= @account.on_deduct %></h3>
+</p>
+<% end %>
+
+<% unless :account_type 'dental', 'vision', 'hra' %>
+  <h2><strong>Account details:</strong></h2>
+  <h3> Company - <%= @account.company %> 
+<p>
+  <h3> Plan Type - <%= @account.plan_type %></h3>
+<p>
+  <h3> Premium - <%= @account.premium %></h3>
+<p>
+  <h3> Balance - <%= @account.balance %></h3>
+</p>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_type: MyString
+  medical_attribute: MyString
+  non_medical_attribute: MyString
+
+two:
+  account_type: MyString
+  medical_attribute: MyString
+  non_medical_attribute: MyString
